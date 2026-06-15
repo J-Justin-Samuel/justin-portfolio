@@ -32,10 +32,11 @@ body {
 }
 
 /* Custom Cursor */
+
 .cursor-dot {
   width: 8px;
   height: 8px;
-  background: var(--ink);
+  background: var(--gold);
   border-radius: 50%;
   position: fixed;
   top: 0;
@@ -43,13 +44,13 @@ body {
   pointer-events: none;
   z-index: 9999;
   transition: transform 0.1s ease;
-  mix-blend-mode: difference;
+  box-shadow: 0 0 10px var(--gold);
 }
 
 .cursor-ring {
   width: 40px;
   height: 40px;
-  border: 1.5px solid var(--ink);
+  border: 1.5px solid var(--gold);
   border-radius: 50%;
   position: fixed;
   top: 0;
@@ -61,13 +62,13 @@ body {
     width 0.2s ease,
     height 0.2s ease,
     opacity 0.2s ease;
-  mix-blend-mode: difference;
 }
 
 .cursor-ring.hovering {
   width: 60px;
   height: 60px;
-  opacity: 0.5;
+  opacity: 1; /* Increased opacity for better visibility on hover */
+  background: rgba(245, 178, 58, 0.1); /* Subtle gold fill on hover */
 }
 
 /* Noise Overlay */
@@ -156,21 +157,42 @@ html.lenis body {
 }
 
 /* Section padding */
+/* --- Vertical Spacing Logic --- */
+
 .section-pad {
-  padding: 100px 0;
+  /* This scales dynamically: 120px on small screens, up to 180px on large ones */
+  padding: clamp(120px, 12vh, 180px) 0;
 }
 
+/* Helper for sections that should own the entire screen (like Hero) */
+.min-h-screen-adjust {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* --- Mobile & Tablet Adjustments --- */
 @media (max-width: 768px) {
   .section-pad {
+    /* Tighter padding for mobile phones so users don't have to scroll forever */
     padding: 60px 0;
   }
+
   body {
     cursor: auto;
   }
+
   .cursor-dot,
   .cursor-ring {
     display: none;
   }
+}
+
+/* --- Accessibility & UX --- */
+:target {
+  /* Prevents the Navbar from covering the section title when you click a link */
+  scroll-margin-top: 80px;
 }
 
 /* Glassmorphism */
