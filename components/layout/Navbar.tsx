@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import MagneticButton from "@/components/ui/MagneticButton";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -36,15 +37,23 @@ export default function Navbar() {
         scrolled ? "glass shadow-sm" : "bg-transparent"
       }`}
     >
-      {/* Logo */}
+      {/* Logo Container */}
       <MagneticButton>
         <button
           onClick={() => scrollTo("#home")}
-          className="font-display font-bold text-xl tracking-tight text-ink flex items-center gap-2"
+          className="font-display font-bold text-xl tracking-tight text-ink flex items-center gap-3"
         >
-          <span className="w-8 h-8 rounded-full bg-ink text-bg flex items-center justify-center text-sm font-bold">
-            JS
-          </span>
+          {/* Rounded Avatar Wrapper */}
+          <div className="relative w-9 h-9 rounded-full overflow-hidden border border-ink/10 bg-ink/5">
+            <Image
+              src="/images/js.jpg"
+              alt="Justin Samuel"
+              fill
+              sizes="36px"
+              className="object-cover"
+              priority
+            />
+          </div>
           <span className="hidden sm:block">Justin Samuel</span>
         </button>
       </MagneticButton>

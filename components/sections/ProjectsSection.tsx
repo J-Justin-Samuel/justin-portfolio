@@ -5,30 +5,33 @@ import { useRef } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import MagneticButton from "@/components/ui/MagneticButton";
+import Image from "next/image";
 
 const projects = [
   {
     id: "01",
-    name: "MoodSync",
-    tagline: "AI-Powered Music Discovery",
+    name: "RideOn",
+    tagline: "Real-Time Ride-Hailing Webapp",
     description:
-      "AI-powered music discovery platform that detects emotions and recommends personalized music experiences. Built with real-time emotion analysis and adaptive recommendation engine.",
-    tech: ["Next.js", "TypeScript", "OpenAI", "Tailwind", "Firebase"],
-    demo: "#",
-    code: "#",
+      "RideOn is a full-stack ride-booking web application that streamlines urban transportation through real-time ride management, secure authentication, location tracking, and digital payment integration. Built with modern web technologies, RideOn delivers a seamless and efficient commuting experience for both riders and service providers.",
+    tech: ["React.js", "Node.js", "MongoDB", "Socket.IO", "GSAP"],
+    demo: "https://ride-on-hazel.vercel.app",
+    code: "https://github.com/J-Justin-Samuel/ride-on",
+    image: "/projects/rideon.jpg",
     imageGradient: "from-gold/40 via-amber-300/20 to-orange-300/30",
     accentColor: "#F5B23A",
     layout: "image-left",
   },
   {
     id: "02",
-    name: "FoodLink",
-    tagline: "Connecting Communities",
+    name: "Vibezfy",
+    tagline: "Mood Detector",
     description:
-      "Platform connecting food donors, NGOs, and communities to reduce food waste through real-time coordination. Enabling measurable social impact at scale.",
-    tech: ["Next.js", "Node.js", "MongoDB", "Express", "Firebase"],
-    demo: "#",
-    code: "#",
+      "Vibezfy is a mood-based music recommendation and visualization web application that leverages Spotify APIs and Firebase services to deliver personalized music experiences. By combining mood analysis, intelligent recommendations, and interactive visualizations, Vibezfy helps users discover the perfect soundtrack for every moment.",
+    tech: ["React.js", "Node.js", "Tailwind CSS", "Firebase", "Spotify API"],
+    demo: "https://vibezfy-v2.vercel.app",
+    code: "https://github.com/J-Justin-Samuel/vibezfy-v2",
+    image: "/projects/vibezfy.jpg",
     imageGradient: "from-coral/30 via-rose-300/20 to-orange-200/20",
     accentColor: "#FF6B57",
     layout: "image-right",
@@ -41,7 +44,8 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  // Mild parallax effect so it still feels dynamic, but keeps the image contained
+  const y = useTransform(scrollYProgress, [0, 1], [15, -15]);
 
   const isLeft = project.layout === "image-left";
 
@@ -64,25 +68,22 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
           </span>
 
           {/* Image container */}
-          <div className="project-image-wrap relative rounded-2xl overflow-hidden aspect-[4/3] bg-ink/5">
+          <div className="project-image-wrap relative rounded-2xl overflow-hidden aspect-[4/3] bg-ink/5 flex items-center justify-center p-4">
             <motion.div
               style={{ y }}
-              className={`absolute inset-0 bg-gradient-to-br ${project.imageGradient} flex items-center justify-center`}
+              className="absolute inset-4 flex items-center justify-center"
             >
-              {/* Replace with actual project screenshots */}
-              <div className="text-center p-8">
-                <p className="font-display font-bold text-4xl text-ink/20">
-                  {project.name}
-                </p>
-                <p className="text-sm text-ink/30 mt-2">
-                  Add screenshot at{" "}
-                  <code className="text-xs bg-ink/10 px-1 rounded">
-                    /public/images/{project.name.toLowerCase()}.jpg
-                  </code>
-                </p>
-              </div>
+              <Image
+                src={project.image}
+                alt={`${project.name} Screenshot`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-contain drop-shadow-md rounded-3xl" // Added 'rounded-3xl' to round the image corners
+                priority={project.id === "01"}
+              />
             </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/10 to-transparent" />
+            {/* Soft border gradient overlay for depth */}
+            <div className="absolute inset-0 border border-ink/10 rounded-2xl pointer-events-none" />
           </div>
         </div>
       </ScrollReveal>

@@ -2,8 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { FiGithub, FiLinkedin, FiInstagram } from "react-icons/fi";
+import { FiGithub, FiLinkedin } from "react-icons/fi";
 import MagneticButton from "@/components/ui/MagneticButton";
+import Image from "next/image";
 
 const stagger = {
   container: {
@@ -36,13 +37,8 @@ const socialLinks = [
   },
   {
     icon: FiLinkedin,
-    href: "https://linkedin.com/in/justinsamuel",
+    href: "https://www.linkedin.com/in/j-justin-samuel",
     label: "LinkedIn",
-  },
-  {
-    icon: FiInstagram,
-    href: "https://instagram.com/justinsamuel",
-    label: "Instagram",
   },
 ];
 
@@ -93,7 +89,7 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 w-full pt-20">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-20 w-full pt-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr,420px] xl:grid-cols-[1fr,480px] gap-12 lg:gap-8 items-center">
           {/* Left: Text content */}
           <motion.div
@@ -119,7 +115,7 @@ export default function HeroSection() {
               >
                 <div className="overflow-hidden">
                   <motion.span className="block" variants={stagger.item}>
-                    build.
+                    Just
                   </motion.span>
                 </div>
                 <div className="overflow-hidden">
@@ -127,12 +123,12 @@ export default function HeroSection() {
                     className="block text-gold"
                     variants={stagger.item}
                   >
-                    learn.
+                    Code
                   </motion.span>
                 </div>
                 <div className="overflow-hidden">
                   <motion.span className="block" variants={stagger.item}>
-                    ship.
+                    Justin
                   </motion.span>
                 </div>
               </motion.h1>
@@ -143,8 +139,8 @@ export default function HeroSection() {
               variants={stagger.item}
               className="text-lg md:text-xl text-ink/60 max-w-md leading-relaxed font-body"
             >
-              Electronics Engineer, AI Builder, and Full Stack Developer
-              crafting meaningful digital experiences.
+              Software Developer and AI Enthusiast building products that solve
+              real-world problems.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -251,28 +247,18 @@ export default function HeroSection() {
                   style={{ x: imgX, y: imgY, scale: 1.1 }}
                   className="absolute inset-0 bg-gradient-to-br from-ink/20 via-gold/30 to-coral/20 flex items-center justify-center"
                 >
-                  {/* Image tag — replace src with actual photo path */}
-                  <div className="text-center p-8">
-                    <div className="w-32 h-32 rounded-full bg-ink/10 mx-auto mb-4 flex items-center justify-center">
-                      <span className="font-display font-bold text-5xl text-ink/30">
-                        JS
-                      </span>
-                    </div>
-                    <p className="text-ink/40 text-sm">
-                      Add your photo at{" "}
-                      <code className="text-xs bg-ink/10 px-1 rounded">
-                        /public/images/justin.jpg
-                      </code>
-                    </p>
-                    {/* Replace the above with: */}
-                    {/* <Image src="/images/justin.jpg" alt="Justin Samuel" fill className="object-cover" /> */}
-                  </div>
+                  <Image
+                    src="/images/justin.jpg"
+                    alt="Justin Samuel"
+                    fill
+                    className="object-cover"
+                  />
                 </motion.div>
 
                 {/* Signature element */}
                 <div className="absolute bottom-4 left-4 right-4">
                   <p
-                    className="font-display text-ink/60 text-sm italic"
+                    className="font-display text-white text-sm italic"
                     style={{ fontStyle: "italic" }}
                   >
                     Justin Samuel ✦
@@ -292,9 +278,8 @@ export default function HeroSection() {
                 delay: 1,
               }}
             >
-              <p className="text-xs text-ink/50 font-medium">Currently</p>
               <p className="text-sm font-semibold text-ink">
-                Building AI Products
+                Software Engineer
               </p>
             </motion.div>
 
@@ -309,7 +294,7 @@ export default function HeroSection() {
               }}
             >
               <p className="text-xs font-bold text-ink font-display">
-                Electronics × AI
+                Web Developer
               </p>
               <p className="text-xs text-ink/50">Full Stack</p>
             </motion.div>

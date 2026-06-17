@@ -3,15 +3,16 @@
 import { motion } from "framer-motion";
 import { FiMapPin, FiMail } from "react-icons/fi";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import Image from "next/image";
 
 const interests = [
-  "Coding",
-  "AI",
-  "Music",
   "Fitness",
-  "Gaming",
-  "Photography",
+  "Sketching",
+  "Coding",
+  "Music",
+  "Watching Films & Series",
   "Learning",
+  "Gaming",
 ];
 
 const focusAreas = [
@@ -71,23 +72,17 @@ export default function AboutSection() {
           {/* 1. Portrait image card - tall left */}
           <div className="sm:row-span-2 lg:row-span-2">
             <BentoCard
-              className="bg-gold/10 border-gold/20 min-h-[300px] lg:min-h-[500px]"
+              className="bg-gold/10 border-gold/20 min-h-[300px] lg:min-h-[475px]"
               delay={0}
             >
-              <div className="h-full flex flex-col items-center justify-between gap-6">
-                <div className="w-full aspect-square rounded-2xl bg-gradient-to-br from-gold/30 to-amber-400/20 flex items-center justify-center overflow-hidden flex-shrink-0">
-                  {/* Replace with <Image src="/images/justin.jpg" alt="Justin" fill className="object-cover rounded-2xl" /> */}
-                  <span className="font-display font-bold text-6xl text-gold/40">
-                    JS
-                  </span>
-                </div>
-                <div className="text-center">
-                  <p className="text-bg font-display font-bold text-xl">
-                    Justin Samuel
-                  </p>
-                  <p className="text-bg/50 text-sm mt-1">
-                    Electronics Engineer × AI Builder
-                  </p>
+              <div className="h-full flex items-center justify-center">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/justin1.jpg"
+                    alt="Justin"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </BentoCard>
@@ -113,27 +108,35 @@ export default function AboutSection() {
           <div>
             <BentoCard delay={0.15}>
               <p className="text-xs font-bold tracking-widest uppercase text-ink/40 mb-4">
-                Current Focus
+                What I Do
               </p>
-              <div className="space-y-3">
+
+              <div className="space-y-4">
                 <div>
-                  <p className="text-xs text-ink/50">Learning</p>
-                  <p className="text-ink font-semibold text-sm">
-                    Advanced Full Stack Development
+                  <p className="font-semibold text-ink text-sm">
+                    Full Stack Development
+                  </p>
+                  <p className="text-xs text-ink/50">
+                    Building modern web applications
                   </p>
                 </div>
-                <div className="h-px bg-ink/10" />
+
                 <div>
-                  <p className="text-xs text-ink/50">Building</p>
-                  <p className="text-ink font-semibold text-sm">
-                    AI-powered products
+                  <p className="font-semibold text-ink text-sm">
+                    Backend Engineering
+                  </p>
+                  <p className="text-xs text-ink/50">
+                    Designing scalable APIs and services
                   </p>
                 </div>
-                <div className="mt-4 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-xs text-green-600 font-medium">
-                    Open to work
-                  </span>
+
+                <div>
+                  <p className="font-semibold text-ink text-sm">
+                    Product Development
+                  </p>
+                  <p className="text-xs text-ink/50">
+                    Turning ideas into real-world solutions
+                  </p>
                 </div>
               </div>
             </BentoCard>
@@ -146,10 +149,11 @@ export default function AboutSection() {
                 Philosophy
               </p>
               <p className="text-ink/80 leading-relaxed">
-                I believe in building things that matter. As an Electronics
-                Engineering student with a deep love for AI and software, I
-                bridge hardware intuition with modern software craft — creating
-                products that are fast, intelligent, and human-centered.
+                I enjoy building software that solves real problems. My passion
+                lies in full-stack development, AI-powered applications, and
+                creating seamless user experiences. I'm constantly learning,
+                experimenting, and turning ideas into products that people can
+                use and enjoy.
               </p>
               <div className="mt-4 pt-4 border-t border-ink/10">
                 <p className="font-display font-bold text-ink text-xl">
@@ -165,21 +169,78 @@ export default function AboutSection() {
               <p className="text-xs font-bold tracking-widest uppercase text-ink/40 mb-4">
                 Education
               </p>
-              <p className="font-display font-bold text-ink text-lg mb-3">
-                Electronics Engineering Student
-              </p>
-              <div className="space-y-2">
-                {focusAreas.map((area) => (
-                  <div key={area} className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-gold flex-shrink-0" />
-                    <span className="text-sm text-ink/60">{area}</span>
-                  </div>
-                ))}
+
+              <div className="space-y-5">
+                <div>
+                  <h3 className="font-display font-bold text-ink">
+                    Bachelor of Engineering ( B.E )
+                  </h3>
+                  <p className="text-sm text-ink/60">
+                    Electronics & Computer Engineering
+                  </p>
+                  <p className="text-xs text-ink/40 mt-1">2024 – present</p>
+                </div>
+
+                <div>
+                  <h3 className="font-display font-bold text-ink">
+                    Pre-University Course ( PUC )
+                  </h3>
+                  <p className="text-sm text-ink/60">Science ( PCMC )</p>
+                  <p className="text-xs text-ink/40 mt-1">2022 – 2024</p>
+                </div>
               </div>
             </BentoCard>
           </div>
 
-          {/* 6. Interests card */}
+          {/* 8. Quote / creative card */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <BentoCard className="bg-ink aspect-square" delay={0.4}>
+              <div className="flex flex-col justify-between h-full min-h-[120px]">
+                <p className="font-display font-bold text-bg text-5xl leading-tight">
+                  Learn.
+                  <br />
+                  Build.
+                  <br />
+                  <span className="text-gold">Improve.</span>
+                  <br />
+                  Repeat.
+                </p>
+                <p className="text-bg/30 text-xs mt-4">— The Cycle</p>
+              </div>
+            </BentoCard>
+          </div>
+
+          {/* 6. Contact card */}
+          <div>
+            <BentoCard className="bg-gold/10 border-gold/20" delay={0.35}>
+              <p className="text-xs font-bold tracking-widest uppercase text-ink/40 mb-4">
+                Reach Me
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <FiMapPin className="text-gold flex-shrink-0" size={15} />
+                  <span className="text-sm text-ink/70">Bangalore, India</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <FiMail className="text-gold flex-shrink-0" size={15} />
+                  <a
+                    href="mailto:hellojustin@example.com"
+                    className="text-sm text-ink/70 animated-link"
+                  >
+                    justinsamuel.codes@gmail.com
+                  </a>
+                </div>
+                <div className="mt-3 pt-3 border-t border-ink/10">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-medium text-green-600">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                    Available for opportunities
+                  </span>
+                </div>
+              </div>
+            </BentoCard>
+          </div>
+
+          {/* 7. Interests card */}
           <div>
             <BentoCard className="bg-coral/5" delay={0.3}>
               <p className="text-xs font-bold tracking-widest uppercase text-ink/40 mb-4">
@@ -198,50 +259,19 @@ export default function AboutSection() {
             </BentoCard>
           </div>
 
-          {/* 7. Contact card */}
-          <div>
-            <BentoCard className="bg-gold/10 border-gold/20" delay={0.35}>
-              <p className="text-xs font-bold tracking-widest uppercase text-ink/40 mb-4">
-                Reach Me
-              </p>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <FiMapPin className="text-gold flex-shrink-0" size={15} />
-                  <span className="text-sm text-ink/70">India</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <FiMail className="text-gold flex-shrink-0" size={15} />
-                  <a
-                    href="mailto:hellojustin@example.com"
-                    className="text-sm text-ink/70 animated-link"
-                  >
-                    hellojustin@example.com
-                  </a>
-                </div>
-                <div className="mt-3 pt-3 border-t border-ink/10">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-medium text-green-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                    Available for opportunities
-                  </span>
-                </div>
-              </div>
-            </BentoCard>
-          </div>
-
-          {/* 8. Quote / creative card */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <BentoCard className="bg-ink" delay={0.4}>
-              <div className="flex flex-col justify-between h-full min-h-[120px]">
-                <p className="font-display font-bold text-bg text-2xl leading-tight">
-                  Learn.
-                  <br />
-                  Build.
-                  <br />
-                  <span className="text-gold">Improve.</span>
-                  <br />
-                  Repeat.
-                </p>
-                <p className="text-bg/30 text-xs mt-4">— The Cycle</p>
+          <div className="sm:row-span-2 lg:row-span-2">
+            <BentoCard
+              className="bg-gold/10 border-gold/20 aspect-square w-full overflow-hidden"
+              delay={0}
+            >
+              <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/js.jpg"
+                  alt="Justin"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
             </BentoCard>
           </div>

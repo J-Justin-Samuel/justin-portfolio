@@ -2,12 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  FiGithub,
-  FiLinkedin,
-  FiInstagram,
-  FiArrowUpRight,
-} from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiArrowUpRight } from "react-icons/fi";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import MagneticButton from "@/components/ui/MagneticButton";
 
@@ -17,8 +12,11 @@ const socials = [
     icon: FiGithub,
     href: "https://github.com/J-Justin-Samuel",
   },
-  { label: "LinkedIn", icon: FiLinkedin, href: "https://linkedin.com" },
-  { label: "Instagram", icon: FiInstagram, href: "https://instagram.com" },
+  {
+    label: "LinkedIn",
+    icon: FiLinkedin,
+    href: "https://www.linkedin.com/in/j-justin-samuel",
+  },
 ];
 
 interface FormState {
@@ -92,10 +90,10 @@ export default function ContactSection() {
             <ScrollReveal delay={0.2}>
               <div className="mb-10">
                 <a
-                  href="mailto:hellojustin@example.com"
+                  href="mailto:justinsamuel.codes@gmail.com"
                   className="group inline-flex items-center gap-3 text-bg font-display font-bold text-xl hover:text-gold transition-colors"
                 >
-                  hellojustin@example.com
+                  justinsamuel.codes@gmail.com
                   <FiArrowUpRight
                     className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
                     size={20}

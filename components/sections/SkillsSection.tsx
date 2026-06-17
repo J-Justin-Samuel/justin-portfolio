@@ -9,17 +9,18 @@ import {
   SiNodedotjs,
   SiExpress,
   SiMongodb,
-  SiMysql,
   SiGit,
+  SiGithub,
   SiSocketdotio,
-  SiDocker,
-  SiFigma,
-  SiTypescript,
-  SiNextdotjs,
-  SiReact,
   SiPython,
+  SiPostgresql,
+  SiBootstrap,
+  SiSass,
+  SiJquery,
 } from "react-icons/si";
 import { DiCss3 } from "react-icons/di";
+import { BiCodeCurly } from "react-icons/bi"; // For MERN Stack/REST API conceptual icons
+import { FaTerminal } from "react-icons/fa"; // For C / C++ structures
 
 const skillCategories = [
   {
@@ -27,11 +28,12 @@ const skillCategories = [
     skills: [
       { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
       { name: "CSS3", icon: DiCss3, color: "#1572B6" },
-      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-      { name: "React", icon: SiReact, color: "#61DAFB" },
-      { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+      { name: "JavaScript (ES6+)", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "React.js", icon: SiJavascript, color: "#61DAFB" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" }, // Keeping your original layout's react style
+      { name: "Bootstrap 5", icon: SiBootstrap, color: "#7952B3" },
+      { name: "Sass", icon: SiSass, color: "#CC6699" },
+      { name: "jQuery", icon: SiJquery, color: "#0769AD" },
     ],
   },
   {
@@ -40,17 +42,25 @@ const skillCategories = [
       { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
       { name: "Express.js", icon: SiExpress, color: "#000000" },
       { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-      { name: "SQL", icon: SiMysql, color: "#4479A1" },
-      { name: "Python", icon: SiPython, color: "#3776AB" },
+      { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+      { name: "REST APIs", icon: BiCodeCurly, color: "#00BCD4" },
+      { name: "Socket.io", icon: SiSocketdotio, color: "#010101" },
     ],
   },
   {
-    label: "Tools & Architecture",
+    label: "Tools & Technologies",
     skills: [
       { name: "Git", icon: SiGit, color: "#F05032" },
-      { name: "Socket.io", icon: SiSocketdotio, color: "#010101" },
-      { name: "Docker", icon: SiDocker, color: "#2496ED" },
-      { name: "Figma", icon: SiFigma, color: "#F24E1E" },
+      { name: "GitHub", icon: SiGithub, color: "#181717" },
+      { name: "MERN Stack", icon: SiMongodb, color: "#4DB33D" },
+      { name: "C", icon: FaTerminal, color: "#A8B9CC" },
+      { name: "C++", icon: FaTerminal, color: "#00599C" },
+      { name: "Python", icon: SiPython, color: "#3776AB" },
+      {
+        name: "Data Structures & Algorithms",
+        icon: BiCodeCurly,
+        color: "#FF9800",
+      },
     ],
   },
 ];
