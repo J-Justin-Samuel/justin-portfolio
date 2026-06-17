@@ -31,8 +31,6 @@ body {
   cursor: none;
 }
 
-/* Custom Cursor */
-
 .cursor-dot {
   width: 8px;
   height: 8px;
@@ -67,11 +65,10 @@ body {
 .cursor-ring.hovering {
   width: 60px;
   height: 60px;
-  opacity: 1; /* Increased opacity for better visibility on hover */
-  background: rgba(245, 178, 58, 0.1); /* Subtle gold fill on hover */
+  opacity: 1;
+  background: rgba(245, 178, 58, 0.1);
 }
 
-/* Noise Overlay */
 .noise-overlay {
   position: fixed;
   inset: 0;
@@ -82,50 +79,40 @@ body {
   background-size: 200px 200px;
 }
 
-/* Clash Display font class */
 .font-display {
   font-family: "Clash Display", var(--font-clash), sans-serif;
 }
 
-/* Smooth Lenis scrolling */
 html.lenis,
 html.lenis body {
   height: auto;
 }
-
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
-
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
-
 .lenis.lenis-stopped {
   overflow: hidden;
 }
 
-/* Selection */
 ::selection {
   background: var(--gold);
   color: var(--ink);
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--bg);
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--ink);
   border-radius: 2px;
 }
 
-/* Magnetic Button */
 .magnetic-btn {
   position: relative;
   display: inline-flex;
@@ -135,13 +122,6 @@ html.lenis body {
   transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Text Reveal */
-.text-reveal-wrapper {
-  overflow: hidden;
-  display: inline-block;
-}
-
-/* Gradient shapes */
 .gradient-blob {
   position: absolute;
   border-radius: 50%;
@@ -149,53 +129,33 @@ html.lenis body {
   pointer-events: none;
 }
 
-/* Marquee */
 .marquee-track {
   display: flex;
   width: max-content;
   animation: marquee 25s linear infinite;
 }
 
-/* Section padding */
-/* --- Vertical Spacing Logic --- */
-
 .section-pad {
-  /* This scales dynamically: 120px on small screens, up to 180px on large ones */
-  padding: clamp(120px, 12vh, 180px) 0;
+  padding: clamp(100px, 10vh, 160px) 0;
 }
 
-/* Helper for sections that should own the entire screen (like Hero) */
-.min-h-screen-adjust {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+:target {
+  scroll-margin-top: 80px;
 }
 
-/* --- Mobile & Tablet Adjustments --- */
 @media (max-width: 768px) {
   .section-pad {
-    /* Tighter padding for mobile phones so users don't have to scroll forever */
     padding: 60px 0;
   }
-
   body {
     cursor: auto;
   }
-
   .cursor-dot,
   .cursor-ring {
     display: none;
   }
 }
 
-/* --- Accessibility & UX --- */
-:target {
-  /* Prevents the Navbar from covering the section title when you click a link */
-  scroll-margin-top: 80px;
-}
-
-/* Glassmorphism */
 .glass {
   background: rgba(248, 245, 239, 0.6);
   backdrop-filter: blur(16px);
@@ -203,17 +163,14 @@ html.lenis body {
   border: 1px solid rgba(10, 10, 10, 0.08);
 }
 
-/* Gold glow */
 .gold-glow {
   box-shadow: 0 0 30px rgba(245, 178, 58, 0.3);
 }
 
-/* Link underline anim */
 .animated-link {
   position: relative;
   display: inline-block;
 }
-
 .animated-link::after {
   content: "";
   position: absolute;
@@ -221,15 +178,13 @@ html.lenis body {
   left: 0;
   width: 0;
   height: 1.5px;
-  background: var(--ink);
+  background: currentColor;
   transition: width 0.35s cubic-bezier(0.23, 1, 0.32, 1);
 }
-
 .animated-link:hover::after {
   width: 100%;
 }
 
-/* Pill badge */
 .pill {
   display: inline-flex;
   align-items: center;
@@ -243,7 +198,6 @@ html.lenis body {
   transition: all 0.25s ease;
   cursor: default;
 }
-
 .pill:hover {
   background: var(--ink);
   color: var(--bg);
@@ -252,7 +206,6 @@ html.lenis body {
   box-shadow: 0 8px 20px rgba(10, 10, 10, 0.15);
 }
 
-/* Bento grid */
 .bento-card {
   border-radius: 20px;
   background: white;
@@ -262,22 +215,18 @@ html.lenis body {
     transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
     box-shadow 0.3s ease;
 }
-
 .bento-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(10, 10, 10, 0.1);
 }
 
-/* Project card */
 .project-image-wrap {
   overflow: hidden;
   border-radius: 16px;
 }
-
 .project-image-wrap img {
   transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
-
 .project-image-wrap:hover img {
   transform: scale(1.05);
 }

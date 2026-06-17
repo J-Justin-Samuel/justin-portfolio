@@ -2,22 +2,22 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Justin Samuel — Electronics Engineer & AI Builder",
+  title: "Justin Samuel — Full Stack Developer & AI Builder",
   description:
-    "Justin Samuel is an Electronics Engineering student, AI Builder, and Full Stack Developer crafting meaningful digital experiences. Available for opportunities.",
+    "Justin Samuel is a Full Stack Developer and AI Builder crafting meaningful digital experiences. Available for opportunities.",
   keywords: [
     "Justin Samuel",
-    "Electronics Engineering",
     "AI Builder",
     "Full Stack Developer",
     "Software Engineer",
+    "Web Developer",
     "Portfolio",
   ],
   authors: [{ name: "Justin Samuel" }],
   openGraph: {
-    title: "Justin Samuel — Electronics Engineer & AI Builder",
+    title: "Justin Samuel — Full Stack Developer & AI Builder",
     description:
-      "Electronics Engineering student, AI Builder, and Full Stack Developer crafting meaningful digital experiences.",
+      "Full Stack Developer and AI Builder crafting meaningful digital experiences.",
     type: "website",
   },
 };

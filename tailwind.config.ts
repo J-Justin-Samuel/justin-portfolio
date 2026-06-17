@@ -22,7 +22,7 @@ const config: Config = {
         float: "float 6s ease-in-out infinite",
         "float-slow": "float 8s ease-in-out infinite",
         "spin-slow": "spin 20s linear infinite",
-        marquee: "marquee 20s linear infinite",
+        marquee: "marquee 25s linear infinite",
       },
       keyframes: {
         float: {
