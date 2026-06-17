@@ -248,7 +248,7 @@ export default function HeroSection() {
                   className="absolute inset-0 bg-gradient-to-br from-ink/20 via-gold/30 to-coral/20 flex items-center justify-center"
                 >
                   <Image
-                    src="/images/justin.jpg"
+                    src="/images/pics/justin.jpg"
                     alt="Justin Samuel"
                     fill
                     className="object-cover"

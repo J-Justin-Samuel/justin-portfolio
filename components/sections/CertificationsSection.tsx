@@ -4,47 +4,57 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FiArrowUpRight, FiAward } from "react-icons/fi";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import Image from "next/image";
 
 const certs = [
   {
     name: "Full Stack Web Development",
     org: "Udemy",
-    year: "2024",
+    year: "2026",
     color: "from-gold/20 to-amber-300/10",
-    accent: "#F5B23A",
-    verifyUrl: "#",
+    accent: "#f53af5",
+    image: "/images/certificates/certificate1.jpg",
+    verifyUrl:
+      "https://www.udemy.com/certificate/UC-cb915080-f9b5-4234-968c-a939506bac1c",
   },
   {
-    name: "Machine Learning Specialization",
-    org: "Coursera / DeepLearning.AI",
-    year: "2024",
-    color: "from-blue-400/20 to-cyan-300/10",
-    accent: "#60A5FA",
-    verifyUrl: "#",
+    name: "Javascript Algorithms and Data Structures",
+    org: "freeCodeCamp",
+    year: "2026",
+    color: "from-violet-600/20 to-fuchsia-400/10",
+    accent: "#fabc60",
+    image: "/images/certificates/certificate2.jpg",
+    verifyUrl:
+      "https://www.freecodecamp.org/certification/justin_samuel/javascript-algorithms-and-data-structures-v8",
   },
   {
-    name: "React Developer Certificate",
-    org: "Meta",
-    year: "2023",
+    name: "Front-End Development Libraries",
+    org: "freeCodeCamp",
+    year: "2025",
     color: "from-sky-400/20 to-blue-300/10",
     accent: "#38BDF8",
-    verifyUrl: "#",
+    image: "/images/certificates/certificate3.jpg",
+    verifyUrl:
+      "https://www.freecodecamp.org/certification/justin_samuel/front-end-development-libraries",
   },
   {
-    name: "Node.js Application Development",
-    org: "IBM",
-    year: "2023",
-    color: "from-green-400/20 to-emerald-300/10",
-    accent: "#4ADE80",
-    verifyUrl: "#",
-  },
-  {
-    name: "Python for Data Science",
+    name: "Responsive Web Design",
     org: "freeCodeCamp",
-    year: "2023",
+    year: "2025",
+    color: "from-indigo-400/20 to-purple-300/10",
+    accent: "#4ADE80",
+    image: "/images/certificates/certificate4.jpg",
+    verifyUrl:
+      "https://www.freecodecamp.org/certification/justin_samuel/responsive-web-design",
+  },
+  {
+    name: "Python for Beginners",
+    org: "simplilearn",
+    year: "2025",
     color: "from-coral/20 to-orange-300/10",
     accent: "#FF6B57",
-    verifyUrl: "#",
+    image: "/images/certificates/certificate5.jpg",
+    verifyUrl: "https://simpli-web.app.link/e/38Taadpd23b",
   },
 ];
 
@@ -129,30 +139,30 @@ export default function CertificationsSection() {
             >
               {/* Certificate image area */}
               <div
-                className={`h-44 bg-gradient-to-br ${cert.color} flex items-center justify-center relative`}
+                className={`h-44 bg-gradient-to-br ${cert.color} flex items-center justify-center relative overflow-hidden isolation-isolate p-3`}
               >
-                <FiAward
-                  size={60}
-                  style={{ color: cert.accent, opacity: 0.4 }}
-                />
-                <div className="absolute top-4 right-4">
+                <div className="relative w-full h-full">
+                  <Image
+                    src={cert.image}
+                    alt={`${cert.name} certificate`}
+                    fill
+                    sizes="(max-width: 768px) 300px, 340px"
+                    className="object-contain rounded-xl drop-shadow-sm" // 'object-contain' stops cropping; 'rounded-xl' rounds the image edges perfectly
+                  />
+                </div>
+
+                {/* Visual badge overlay stays cleanly visible above image layers */}
+                <div className="absolute top-4 right-4 z-10">
                   <span
-                    className="text-xs font-bold px-3 py-1 rounded-full"
+                    className="text-xs font-bold px-3 py-1 rounded-full shadow-sm backdrop-blur-md"
                     style={{
-                      background: `${cert.accent}20`,
-                      color: cert.accent,
+                      background: `${cert.accent}dd`,
+                      color: "#ffffff",
                     }}
                   >
                     {cert.year}
                   </span>
                 </div>
-                {/* Replace inner content with:
-                <Image
-                  src={`/images/certs/${cert.name.toLowerCase().replace(/ /g,'-')}.jpg`}
-                  alt={cert.name}
-                  fill
-                  className="object-cover"
-                /> */}
               </div>
 
               {/* Card content */}

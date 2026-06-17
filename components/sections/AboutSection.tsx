@@ -78,7 +78,7 @@ export default function AboutSection() {
               <div className="h-full flex items-center justify-center">
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
                   <Image
-                    src="/images/justin1.jpg"
+                    src="/images/pics/justin1.jpg"
                     alt="Justin"
                     fill
                     className="object-cover"
@@ -266,7 +266,7 @@ export default function AboutSection() {
             >
               <div className="relative w-full h-full rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/js.jpg"
+                  src="/images/pics/js.jpg"
                   alt="Justin"
                   fill
                   className="object-cover"

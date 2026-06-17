@@ -46,7 +46,7 @@ export default function Navbar() {
           {/* Rounded Avatar Wrapper */}
           <div className="relative w-9 h-9 rounded-full overflow-hidden border border-ink/10 bg-ink/5">
             <Image
-              src="/images/js.jpg"
+              src="/images/pics/js.jpg"
               alt="Justin Samuel"
               fill
               sizes="36px"

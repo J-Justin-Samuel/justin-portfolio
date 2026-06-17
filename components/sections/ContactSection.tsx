@@ -32,14 +32,45 @@ export default function ContactSection() {
     message: "",
   });
   const [focused, setFocused] = useState<string | null>(null);
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Replace with actual form submission logic
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-    setForm({ name: "", email: "", message: "" });
+    setStatus("sending");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "2ae9f9bd-8fc4-498c-bd6c-74c601121ef5", // Your active API Key
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("success");
+        setForm({ name: "", email: "", message: "" });
+        // Return button back to normal after 3 seconds
+        setTimeout(() => setStatus("idle"), 3000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 3000);
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 3000);
+    }
   };
 
   const fields: Array<{
@@ -129,6 +160,7 @@ export default function ContactSection() {
                     {multiline ? (
                       <textarea
                         id={key}
+                        name={key}
                         value={form[key]}
                         onChange={(e) =>
                           setForm({ ...form, [key]: e.target.value })
@@ -143,6 +175,7 @@ export default function ContactSection() {
                     ) : (
                       <input
                         id={key}
+                        name={key}
                         type={type || "text"}
                         value={form[key]}
                         onChange={(e) =>
@@ -171,13 +204,21 @@ export default function ContactSection() {
                 <MagneticButton className="w-full">
                   <motion.button
                     type="submit"
+                    disabled={status === "sending"}
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full group flex items-center justify-center gap-3 px-8 py-4 bg-gold text-ink rounded-xl font-bold text-sm hover:bg-white transition-colors duration-300"
+                    className={`w-full group flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-sm transition-colors duration-300 ${
+                      status === "success"
+                        ? "bg-emerald-600 text-white"
+                        : status === "error"
+                          ? "bg-rose-600 text-white"
+                          : "bg-gold text-ink hover:bg-white"
+                    }`}
                   >
-                    {submitted ? (
-                      "Message Sent! ✓"
-                    ) : (
+                    {status === "sending" && "Sending..."}
+                    {status === "success" && "Message Sent! ✓"}
+                    {status === "error" && "Failed to Send. Try Again"}
+                    {status === "idle" && (
                       <>
                         Send Message
                         <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
